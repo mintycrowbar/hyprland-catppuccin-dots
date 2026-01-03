@@ -1,0 +1,21 @@
+# system stuff
+exec-once = xwaylandvideobridge &
+exec-once = systemctl --user start hyprpolkitagent &
+exec-once = hyprpm reload -n &
+
+# hyprland-related and daemons (waybar, mako, etc.)
+exec-once = waybar &
+exec-once = mako &
+exec-once = hyprpaper &
+exec-once = sunsetr &
+exec-once = hypridle &
+exec-once = swww-daemon &
+
+# system utilities
+exec-once = copyq &
+exec-once = kdeconnect-indicator
+exec-once = hyprctl setcursor Bibata-Original-Classic 24 &
+exec-once = easyeffects &
+
+# programs
+exec-once = {{ .chezmoi.homeDir }}/.local/share/Discord/Discord

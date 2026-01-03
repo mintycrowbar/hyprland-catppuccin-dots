@@ -1,0 +1,142 @@
+{
+	"output": "DP-3", // if you want to have waybar on all of your monitors, then delete this line, otherwise replace the value with your monitor id (you can see what it's called by running `hyprctl monitors`)
+    "layer": "top",
+    "modules-left": ["image#arch-logo","custom/weather","tray","custom/quick-settings","mpris"],
+    "modules-center": ["cffi/virtual-desktops"],
+    "modules-right": ["custom/power-menu","network","cpu","memory","pulseaudio","clock"],
+
+    "custom/power-menu": {
+        "format": "",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "{{ .chezmoi.homeDir }}/.config/waybar/modules/power-menu.xml",
+        "menu-actions": {
+            "shutdown": "killall easyeffects && hyprshutdown -p 'shutdown now'",
+            "reboot": "killall easyeffects && hyprshutdown -p 'reboot'",
+            "logout": "killall easyeffects && hyprshutdown",
+            "suspend": "systemctl suspend",
+        }
+    },
+
+    "cffi/virtual-desktops": {
+        "module_path": "{{ .chezmoi.homeDir }}/.config/waybar/modules/libwaybar_vd.so",
+        "format": "{name}{icon}",
+        "format_icons": {
+            "1":"",
+            "2":"",
+            "3":"",
+            "4":"",
+		    "5":""
+	    },
+	    "show_empty": false
+    },
+
+    "image#arch-logo": {
+        "path": "{{ .chezmoi.homeDir }}/.config/waybar/images/arch-logo-catppuccin.png",
+        "size": 26,
+        "on-click": "hyprsysteminfo"
+    },
+    
+	"custom/quick-settings": {
+	    "format" : "",
+	        "tooltip": false,
+	        "menu": "on-click",
+	        "menu-file": "{{ .chezmoi.homeDir }}/.config/waybar/modules/quick-settings.xml",
+	        "menu-actions": {
+	            "change-background": "waypaper",
+	            "toggle-hyprlock": "{{ .chezmoi.homeDir }}/.scripts/hyprlock/toggle-hyprlock.sh"
+	        }
+	},
+
+
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "{{ .chezmoi.homeDir }}/.scripts/wttr-exec.sh",
+        "return-type": "json"
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "eth 󰈀",
+        "format-disconnected": "disconnected ",
+        "tooltip-format-ethernet": " connected via ethernet – {ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-disconnected": "Disconnected :(",
+        "max-length": 50
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%"
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+
+    "mpris": {
+        "format": "{title} - {artist}",
+        "max-length": 55
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    "pulseaudio": {
+        "scroll-step": 2,
+        "max-volume": 150,
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pwvucontrol"
+    },
+    "clock": {
+        "interval": 60,
+        "format": "{:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "",
+            "on-scroll"     : 1,
+            "format": {
+                "months":    "<span color='#f4b8e4'><b>{}</b></span>",
+                "days":      "<span color='#f2d5cf'><b>{}</b></span>",
+                "weekdays":  "<span color='#babbf1'><b>{}</b></span>",
+                "today":     "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    }
+}

@@ -1,0 +1,6 @@
+#!/bin/zsh
+source {{ .chezmoi.homeDir }}/.zshrc
+
+pyenv shell 3.12.0
+killall waybar
+waybar

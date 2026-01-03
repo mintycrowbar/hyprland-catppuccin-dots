@@ -1,0 +1,179 @@
+@import "mocha.css"; 
+
+* {
+    font-family: 'FiraCode Nerd Font';
+    font-size: 16px;
+    min-height: 24px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @overlay2;
+}
+
+.modules-left {
+    margin: 5px 0 0 0;
+}
+.modules-center {
+    margin: 5px 0 0 0;
+}
+.modules-right {
+    margin: 5px 0 0 0;
+}
+
+/* Virtual Desktop Module Container */
+#waybar-vd {
+    padding: 0px 5px;
+}
+
+/* Reset button defaults for clean styling */
+#waybar-vd button {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 2px 8px;
+    margin: 0 2px;
+    border-radius: 6px;
+    color: rgba(205, 189, 255, 0.4);
+    font-weight: normal;
+}
+
+#waybar-vd button {
+    /* Smooth transitions for all interactions */
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: inherit;
+    font-family: inherit;
+}
+
+/* Focused Virtual Desktop */
+#waybar-vd button.vdesk-focused {
+    border: 2px solid @rosewater;
+    background-color: #181825;
+    color: @subtext0;
+    font-weight: bold;
+}
+
+/* Unfocused Virtual Desktop */
+#waybar-vd button.vdesk-unfocused {
+    border: 2px solid #2c2c44;
+    background-color: @crust;
+    color: @overlay2;
+}
+
+/* Manual Hover Effects (CSS :hover doesn't work in CFFI modules) */
+#waybar-vd button.hover.vdesk-focused {
+    color: @primary;
+}
+
+#waybar-vd button.hover.vdesk-unfocused {
+    color: @on_surface_variant;
+}
+
+/* Animation States */
+#waybar-vd button.creating {
+    opacity: 0;
+}
+
+#waybar-vd button.destroying {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Hidden Virtual Desktops */
+#waybar-vd button.hidden {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.modules-left {
+    margin: 5px 6px 0 6px;
+    padding: 0;
+}
+
+#image, #custom-weather, #custom-quick-settings, #tray, #mpris {
+    background-color: @crust;
+    border-radius: 8px;
+    border: 2px solid #2c2c44;
+}
+
+menu {
+    border-radius: 15px;
+    background: #161320;
+    color: #B5E8E0;
+}
+menuitem {
+    border-radius: 15px;
+}
+
+#image {
+    padding: 0 8px;
+    margin-right: 6px;
+}
+
+#custom-weather {
+    padding: 0 6px;
+}
+
+#custom-quick-settings {
+	padding: 0 12px 0 8px;
+	margin-left: 6px;
+}
+
+#tray {
+    padding: 0 8px;
+    margin-left: 6px;
+}
+
+#mpris {
+    padding: 0 12px;
+    margin-left: 6px;
+}
+
+#pulseaudio,
+#clock,
+#cpu,
+#memory,
+#network,
+#custom-power-menu {
+    margin: 0 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: @crust;
+    border: 2px solid @overlay0;
+    border-radius: 7px;
+}
+
+#custom-power-menu {
+    margin: 0;
+    padding: 0 12px 0 9px;
+}
+
+#network {
+    color: @blue;
+    border: 2px solid @blue;
+    margin-left: 8px;
+}
+
+#cpu {
+    color: @green;
+    border: 2px solid @green;
+}
+
+#memory {
+    color: @yellow;
+    border: 2px solid @yellow;
+}
+
+#pulseaudio {
+    color: @peach;
+    border: 2px solid @peach;
+}
+
+#clock {
+    margin-right: 10px;
+    color: @red;
+    border: 2px solid @red;
+}

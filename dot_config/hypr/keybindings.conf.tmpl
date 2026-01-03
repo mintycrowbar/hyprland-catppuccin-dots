@@ -1,0 +1,90 @@
+##### INFO FOR SETTING KEYBINDS #####
+# There's a utility called wev that you can use to find out what are the exact names or codes for your keyboard/mouse buttons, so that you can change them to your liking instead of the ones here. Because of that, some of the keybindings here are defined with code:<code> instead of a letter/symbol, since some keys can have ambiguous names.
+
+$SUP = SUPER # Set Super key as main modifier
+$SUP_SHIFT = SUPER_SHIFT 
+$SUP_ALT = SUPER_ALT
+
+### KEYBINDS ###
+bind = $SUP, C, exec, $terminal
+bind = $SUP, S, exec, $browser
+bind = $SUP, E, exec, $fileManager
+bind = $SUP, X, exec, kitty yazi {{ .chezmoi.homeDir }}
+bind = $SUP, F, exec, $menu
+bind = $SUP, Q, killactive,
+bind = $SUP, R, togglesplit,
+bind = $SUP, P, pseudo, # dwindle
+bind = $SUP, T, togglefloating
+
+# take a screenshot with shift + printsc
+bind = SHIFT, code:107, exec, hyprshot -m region -o {{ .chezmoi.homeDir }}/Pictures/hyprshot
+
+# activate hyprlock
+bind = $SUP_SHIFT, L, exec, hyprlock
+
+# activate CopyQ with Super + V
+bind = $SUP, V, exec, copyq toggle
+
+# reload waybar with Super + - (dash)
+bind = $SUP, code:20, exec, {{ .chezmoi.homeDir }}/.config/waybar/scripts/reload-waybar.sh
+
+# bring up hypremoji menu with Super + period
+bind = $SUP, period, exec, hypremoji
+
+# playerctl
+bind = , KP_Home, exec, playerctl play-pause
+bind = , KP_Up, exec, playerctl next
+# KP_Home and KP_Up are keys on the numpad, see notice at the top of this file
+
+######### WORKSPACES, DESKTOP, ETC, #########
+# Move focus with Super + arrow keys
+bind = $SUP, left, movefocus, l
+bind = $SUP, h, movefocus, l
+bind = $SUP, right, movefocus, r
+bind = $SUP, l, movefocus, r
+bind = $SUP, up, movefocus, u
+bind = $SUP, k, movefocus, u
+bind = $SUP, down, movefocus, d
+bind = $SUP, j, movefocus, d
+
+# Move/resize windows with Super + LMB/RMB and dragging
+bindm = $SUP, mouse:272, movewindow
+bindm = $SUP, mouse:273, resizewindow
+
+# Switch virtual desktops with mainMod + [0-5]
+bind = $SUP, 1, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 1
+bind = $SUP, 2, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 2
+bind = $SUP, 3, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 3
+bind = $SUP, 4, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 4
+bind = $SUP, 5, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 5
+bind = $SUP, 6, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 6
+bind = $SUP, 7, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 7
+bind = $SUP, 8, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 8
+bind = $SUP, 9, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-if-already-on-desktop.sh 9
+
+
+# Move active window to another virtual desktop
+bind = SUPER_SHIFT, 1, exec, hyprctl dispatch movetodesk 1
+bind = SUPER_SHIFT, 2, exec, hyprctl dispatch movetodesk 2
+bind = SUPER_SHIFT, 3, exec, hyprctl dispatch movetodesk 3
+bind = SUPER_SHIFT, 4, exec, hyprctl dispatch movetodesk 4
+bind = SUPER_SHIFT, 5, exec, hyprctl dispatch movetodesk 5
+bind = SUPER_SHIFT, 6, exec, hyprctl dispatch movetodesk 6
+bind = SUPER_SHIFT, 7, exec, hyprctl dispatch movetodesk 7
+bind = SUPER_SHIFT, 8, exec, hyprctl dispatch movetodesk 8
+bind = SUPER_SHIFT, 9, exec, hyprctl dispatch movetodesk 9
+
+
+# Scroll through existing virtual desktops with Super + scroll or Pgup and Pgdown
+bind = $SUP, Next, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-scroll-previous.sh
+bind = $SUP, Prior, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-scroll-next.sh
+bind = $SUP, mouse_down, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-scroll-next.sh
+bind = $SUP, mouse_up, exec, {{ .chezmoi.homeDir }}/.config/hypr/scripts/check-scroll-previous.sh
+
+
+#############################################
+
+bindl = , XF86AudioNext, exec, playerctl next
+bindl = , XF86AudioPause, exec, playerctl play-pause
+bindl = , XF86AudioPlay, exec, playerctl play-pause
+bindl = , XF86AudioPrev, exec, playerctl previous

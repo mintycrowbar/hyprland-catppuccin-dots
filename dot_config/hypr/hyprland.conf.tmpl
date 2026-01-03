@@ -1,0 +1,40 @@
+# Refer to the wiki for more information.
+# https://wiki.hypr.land/Configuring/
+
+#=================================================================================#
+
+# COLORS AND CATPPUCCIN THEME
+source = {{ .chezmoi.homeDir }}/.config/hypr/mocha.conf
+
+# MONITORS
+source = {{ .chezmoi.homeDir }}/.config/hypr/monitors.conf
+
+# MY PROGRAMS
+source = {{ .chezmoi.homeDir }}/.config/hypr/my-programs.conf
+
+# AUTOSTART
+source = {{ .chezmoi.homeDir }}/.config/hypr/autostart.conf
+
+# STICKYRULES (for the hyrpland-virtual-desktops plugin)
+source = {{ .chezmoi.homeDir }}/.config/hypr/stickyrules.conf
+
+# ENVIRONMENT VARIABLES
+source = {{ .chezmoi.homeDir }}/.config/hypr/environment-variables.conf
+
+# PERMISSIONS
+source = {{ .chezmoi.homeDir }}/.config/hypr/permissions.conf
+
+# LOOK AND FEEL
+source = {{ .chezmoi.homeDir }}/.config/hypr/look-and-feel.conf
+
+# INPUT
+source = {{ .chezmoi.homeDir }}/.config/hypr/input.conf
+
+# KEYBINDINGS
+source = {{ .chezmoi.homeDir }}/.config/hypr/keybindings.conf
+
+# WINDOWS AND WORKSPACES
+source = {{ .chezmoi.homeDir }}/.config/hypr/windows-and-workspaces.conf
+
+# other stuff that needs to be loaded after everything else starts
+source = {{ .chezmoi.homeDir }}/.config/hypr/post-load.conf
