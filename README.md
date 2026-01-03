@@ -61,7 +61,7 @@
 ### Install necessary packages:
 ```
 sudo pacman -Syu
-sudo pacman -S chezmoi copyq curl discord fastfetch feh firefox git hyprland hyprlock hyprpicker hyprpolkitagent hyprshot hyprutils kdeconnect kvantum mako meson nemo nemo-fileroller noto-fonts nwg-look papirus-icon-theme pipewire pipewire-alsa pipewire-audio pipewire-pulse pipewire-session-manager pyenv python-cffi python-pip python-pipx qt5 seahorse starship swww ttf-jetbrains-mono-nerd waybar wget wireplumber wofi xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zsh
+sudo pacman -S chezmoi copyq curl discord easyeffects fastfetch feh firefox git hyprland hyprlock hyprpicker hyprpolkitagent hyprshot hyprutils kdeconnect kvantum mako meson nemo nemo-fileroller noto-fonts nwg-look papirus-icon-theme pipewire pipewire-alsa pipewire-audio pipewire-pulse pipewire-session-manager pyenv python-cffi python-pip python-pipx qt5 seahorse starship swww ttf-firacode-mono-nerd ttf-jetbrains-mono-nerd waybar wget wireplumber wofi xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zsh
 ```
 
 ### Install yay:
@@ -81,7 +81,7 @@ hyprpm reload
 
 ### Install packages that are necessary for theming Qt and GTK applications catppuccin style (as well as a couple others from the AUR).
 ```
-yay -S catppuccin-cursors-mocha catppuccin-gtk-theme-mocha desktop-style desktop-style5 hyprshutdown-git mirage pwvucontrol qqc2 qt5ct-kde qt6ct-kde pwvucontrol waypaper wttrbar
+yay -S catppuccin-gtk-theme-mocha mirage pwvucontrol qqc2-desktop-style qqc2-desktop-style5 qt5ct-kde qt6ct-kde pwvucontrol waypaper wttrbar
 ```
 
 ### Theme Qt applications:
@@ -123,11 +123,22 @@ gsettings set org.gnome.desktop.default-applications.terminal exec kitty
 gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty
 ```
 
+### Compile Hyprshutdown
+```
+git clone https://github.com/hyprwm/hyprshutdown
+cd hyprshutdown
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+sudo make install
+```
+
 ### Use chezmoi to apply the dotfiles:
 ```
 git clone https://github.com/mintycrowbar/hyprland-catppuccin-dots
-cd hyprland-catppuccin-dots
-chezmoi init
+mkdir -p ~/.local/share
+mv hyprland-catppuccin-dots ~/.local/share/chezmoi
 chezmoi apply
 ```
 
@@ -138,6 +149,7 @@ chezmoi apply
 ```
 cd hyprland-catppuccin-dots
 tar -xvf Bibata-Original-Classic.tar.xz
+mkdir -p ~/.local/share/icons
 mv Bibata-* ~/.local/share/icons/
 ```
 **Reboot afterwards, the environment variables in `~/.config/hypr/environment-variables.conf` should set the cursor automatically, if not, refer to the [Hyprland Wiki page](https://wiki.hypr.land/Hypr-Ecosystem/hyprcursor/)**

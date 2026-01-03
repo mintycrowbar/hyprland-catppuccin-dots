@@ -1,5 +1,4 @@
-# There are some monitor-related settings here which you will have to change to make hyprlock work correctly
-# The `monitor` attribute sets on which monitor that element will be displayed. Set it according to your actual monitor setup. If blank, it will show on both.
+# The `monitor` attribute sets on which monitor that element will be displayed. Set it according to your actual monitor setup (if you want a specific element to only show on one of your monitors, then specify it by `monitor = <monitor-id>`). If blank, it will show on both.
 
 source = {{ .chezmoi.homeDir }}/.config/hypr/mocha.conf
 
@@ -23,7 +22,7 @@ background {
 
 # TIME
 label {
-    monitor = DP-3
+    monitor =
     text = cmd[update:30000] echo "$(date +"%R")"
     color = $text
     font_size = 30
@@ -35,7 +34,7 @@ label {
 
 # DATE 
 label {
-    monitor = DP-3
+    monitor =
     text = cmd[update:43200000] echo "$(date +"%A, %d %B")"
     color = $text
     font_size = 25
@@ -47,7 +46,7 @@ label {
 
 # USER AVATAR
 image {
-    monitor = DP-3
+    monitor =
     path = {{ .chezmoi.homeDir }}/.avatar.jpg
     size = 100
     border_color = $accent
@@ -58,7 +57,7 @@ image {
 
 # INPUT FIELD
 input-field {
-    monitor = DP-3
+    monitor =
     size = 300, 60
     outline_thickness = 3
     rounding = 1
@@ -80,10 +79,9 @@ input-field {
     valign = center
 }
 
-
-# random text
+# text
 label {
-	monitor = DP-3
+	monitor =
 	text = ^q^
 	position = 0, -350
 	font_family = $font
