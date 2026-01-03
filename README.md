@@ -51,6 +51,10 @@
 ### These dotfiles are customized to help with a dual monitor workflow on a desktop, so if you use a laptop or work on a single monitor, I highly recommend modifying the configs and/or forking the repo.
 ### If you already have a system up and running, skip some of the basic setup steps mentioned here (installing yay, etc). This guide assumes you have a fresh Arch or EndeavourOS install.
 
+<div style="display: flex; justify-content: center;">
+	<img src="./demo-image.png">
+</div>
+
 > [!NOTE]
 > This project uses [chezmoi](https://www.chezmoi.io/) to simplify applying the dots.
 
