@@ -1,7 +1,6 @@
-<div style="display: flex; justify-content: center;">
-	<h2 style="text-align: center;">Catppuccin (mocha)-themed Hyprland dotfiles! 😺</h2>
+<div align="center">
+	<h2>Catppuccin (mocha) themed Hyprland dotfiles! 😺</h2>
 </div>
-
 <div align="center">
     <table style="border: 3px solid #0A0A0AFF; width: 75%;">
         <tr>
