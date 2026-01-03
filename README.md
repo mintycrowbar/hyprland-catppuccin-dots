@@ -58,13 +58,13 @@
 > This project uses [chezmoi](https://www.chezmoi.io/) to simplify applying the dots.
 
 
-### Install necessary packages:
+### Install necessary packages
 ```
 sudo pacman -Syu
 sudo pacman -S chezmoi copyq curl discord easyeffects fastfetch feh firefox git hyprland hyprlock hyprpicker hyprpolkitagent hyprshot hyprutils kdeconnect kvantum mako meson nemo nemo-fileroller noto-fonts nwg-look papirus-icon-theme pipewire pipewire-alsa pipewire-audio pipewire-pulse pipewire-session-manager pyenv python-cffi python-pip python-pipx qt5 seahorse starship swww ttf-firacode-mono-nerd ttf-jetbrains-mono-nerd waybar wget wireplumber wofi xdg-desktop-portal-gtk xdg-desktop-portal-hyprland zsh
 ```
 
-### Install yay:
+### Install yay
 ```
 sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/yay-bin.git
@@ -79,12 +79,12 @@ hyprpm add https://github.com/levnikmyskin/hyprland-virtual-desktops
 hyprpm reload
 ```
 
-### Install packages that are necessary for theming Qt and GTK applications catppuccin style (as well as a couple others from the AUR).
+### Install packages that are necessary for theming Qt and GTK applications catppuccin style (as well as a couple others from the AUR)
 ```
 yay -S catppuccin-gtk-theme-mocha mirage pwvucontrol qqc2-desktop-style qqc2-desktop-style5 qt5ct-kde qt6ct-kde pwvucontrol waypaper wttrbar
 ```
 
-### Theme Qt applications:
+### Theme Qt applications
 1. clone the Catppuccin KDE repository:
 	```
    git clone https://github.com/catppuccin/kde
@@ -97,10 +97,10 @@ yay -S catppuccin-gtk-theme-mocha mirage pwvucontrol qqc2-desktop-style qqc2-des
 7. Confirm with apply and OK
 8. Repeat steps 5-7 with `qt6ct-kde`.
 > [!IMPORTANT]
-> A small amount of Qt apps won't apply the catppuccin style, such as KDEConnect and Filelight, from what I've seen. I've searched how to style all Qt apps consistently, yet there's no definitive guide for this from KDE devs or something. However, this seems to be the method that will style most of them correctly. If you know a more consistent way, feel free to open an issue.
+> A small amount of Qt apps won't apply the catppuccin style, such as KDEConnect and Filelight, from what I've seen. I've searched how to style all Qt apps consistently, yet there's no definitive guide for this from KDE devs or something. However, using qt5ct-kde and qt6ct-kde seems to be the method that will style most of them correctly. If you know a more consistent way, feel free to open an issue.
 
 
-### change the default shell to zsh
+### Change the default shell to zsh
 ```
 sudo chsh -s /bin/zsh
 # reboot afterwards
@@ -134,7 +134,7 @@ make -j$(nproc)
 sudo make install
 ```
 
-### Use chezmoi to apply the dotfiles:
+### Use chezmoi to apply the dotfiles
 ```
 git clone https://github.com/mintycrowbar/hyprland-catppuccin-dots
 mkdir -p ~/.local/share
@@ -154,7 +154,7 @@ mv Bibata-* ~/.local/share/icons/
 ```
 **Reboot afterwards, the environment variables in `~/.config/hypr/environment-variables.conf` should set the cursor automatically, if not, refer to the [Hyprland Wiki page](https://wiki.hypr.land/Hypr-Ecosystem/hyprcursor/)**
 
-### post install steps
+## Post install steps
 - `mkdir -p ~/Pictures/hyprshot` (this is where Hyprshot will store screenshots)
 - edit `~/.config/hypr/environment-variables.conf` based on your GPU
 - Write your location in `~/.wttrbar-location` so that the Waybar wttr.in module knows where to get its data from
