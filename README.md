@@ -49,14 +49,14 @@
 </div>
 <br>
 
-<div style="display: flex; justify-content: center; border: 2px solid #C9A3F6">
+<div style="display: flex; justify-content: center;">
 	<img src="./demo-image.png">
 </div>
-<div style="display: flex; justify-content: center; margin-top: 1.5rem; border: 2px solid #C9A3F6"">
+<div style="display: flex; justify-content: center; margin-top: 1.5rem;">
 	<img src="./demo-image2.png">
 </div>
 
-## Watch the demo to see the dots in action!
+## Watch the demo (`demo.mp4`) to see the dots in action!
 ### These dotfiles are customized to help with a dual monitor workflow on a desktop, so if you use a laptop or work on a single monitor, I highly recommend modifying the configs and/or forking the repo.
 ### If you already have a system up and running, skip some of the basic setup steps mentioned here (installing yay, etc). This guide assumes you have a fresh Arch or EndeavourOS install.
 
